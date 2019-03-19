@@ -1,0 +1,32 @@
+<%= form_with(model: score, local: true) do |form|%>
+    
+   <div>
+       <%= form.label :home_team_id, "Mājas komanda"%>
+       <%= form.collection_select(:home_team_id, Team.all, :id, :title, {:prompt => "Izvēlēties Valsti"}, {:multiple => false} ) %>
+   </div>
+  
+   <div>
+   <%= form.label :guest_team_id, "Viesu komanda"%>
+       <%= form.collection_select(:guest_team_id, Team.all, :id, :title, {:prompt => "Izvēlēties Valsti"}, {:multiple => false} ) %>
+   </div>
+
+    <div>
+       <%= form.label :home_goals, "Mājas vārti"%> 
+       <%= form.text_field :home_goals%> 
+    </div>
+
+    <div>
+       <%= form.label :guest_goals, "Viesu vārti"%> 
+       <%= form.text_field :guest_goals%> 
+    </div>
+
+    <div>
+      <%= form.label :extra_time, "Papildlaiks?"%>
+       <%= form.check_box :extra_time %>
+    </div>
+
+    <div>
+        <%= form.submit "Saglabāt"%>
+    </div>
+
+<% end %>

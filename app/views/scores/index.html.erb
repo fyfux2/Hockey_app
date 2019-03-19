@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+<h1>Rezultāti</h1>
+
+<table>
+    <thead>
+        <tr>
+            <th>Mājas komanda</th>
+            <th>Viesu komanda</th>
+            <th>Mājas komandas rezultāts</th>
+            <th>Viesu komandas rezultāts</th>
+            <th>Papildlaiks?</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        <%#ruby code goes in to the <%%>
+        <% def human_boolean(boolean)
+            boolean ? 'Jā' : 'Nē'
+        end%>
+
+
+        <% @scores.each do |score| %>
+            
+            <tr>
+                <td><%= score.home_team.title %></td>
+                <td><%= score.guest_team.title %></td>
+                <td><%= score.home_goals %></td>
+                <td><%= score.guest_goals %></td>
+                <td><%= human_boolean(score.extra_time) %>  </td>              
+                <td><%= link_to 'labot', edit_score_path(score) %></td>  
+                <td><%= link_to 'dzēst', score_path(score), method: :delete, 
+                data: { confirm: 'Vai esat drošs, ka vēlaties dzēst ierakstu?'} %></td>
+            </tr>
+
+        <% end %>
+    </tbody>
+
+</table>
+
+<%= link_to 'Jauns ieraksts', new_score_path %>  

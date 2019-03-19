@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+<h1><%= @team.title%> (<%= @team.code%>)</h1>
+
+<p>
+  <strong>Nosaukums:</strong>
+  <%= @team.title %>
+</p>
+
+<p>
+  <strong>Saīsinājums:</strong>
+  <%= @team.code %>
+</p>
+
+<%= link_to 'Labot', edit_team_path(@team) %> |
+<%= link_to 'Atpakaļ', teams_path %>

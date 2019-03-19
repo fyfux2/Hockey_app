@@ -1,0 +1,32 @@
+<%= form_with(model: player, local: true) do |form|%>
+
+    <div>
+       <%= form.label :name, "Vārds Uzvārds"%> 
+       <%= form.text_field :name%> 
+    </div>
+
+    <div>
+       <%= form.label :number, "Spēlētāja numurs"%> 
+       <%= form.text_field :number%> 
+    </div>
+
+    <div>
+       <%= form.label :position, "Pozīcija"%> 
+       <%= form.text_field :position%> 
+    </div>
+
+    <div>
+       <%= form.label :club, "Klubs"%> 
+       <%= form.text_field :club%> 
+    </div>
+    
+    <div>
+       <%= collection_select( :player, :team_id, Team.all, :id, :title, prompt: true ) %>
+      
+    </div>
+
+    <div>
+        <%= form.submit "Saglabāt"%>
+    </div>
+
+<% end %>
