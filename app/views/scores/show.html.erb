@@ -19,10 +19,6 @@
   <%= @score.guest_goals %>
 </p>
 
-<% def human_boolean(boolean)
-            boolean ? 'Jā' : 'Nē'
-        end%>
-
 <p>
   <strong>Papildlaiks?</strong>
   <%= human_boolean(@score.extra_time) %>
