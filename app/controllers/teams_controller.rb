@@ -1,7 +1,16 @@
 class TeamsController < ApplicationController
     
     def index #GET
-        @teams = Team.all
+        @teams = Team.all.order(:title)
+
+        respond_to do |format|
+            format.html
+            format.json do
+              render(json: @teams.to_json(
+                only: [:title, :code, :id],
+              ))
+            end
+          end
     end
 
     def show #GET

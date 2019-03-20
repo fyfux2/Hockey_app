@@ -1,5 +1,16 @@
 <%= form_with(model: score, local: true) do |form|%>
-    
+    <%if score.errors.any?%>
+      <div id="error_explanation">
+         <h2>Kļūdas saglabājot:</h2>
+
+         <ul>
+         <% score.errors.full_messages.each do |message|%>
+         <li><%=message%></li>
+   <%end%>
+
+         </ul>
+         </div>
+   <%end%>
    <div>
        <%= form.label :home_team_id, "Mājas komanda"%>
        <%= form.collection_select(:home_team_id, Team.all, :id, :title, {:prompt => "Izvēlēties Valsti"}, {:multiple => false} ) %>

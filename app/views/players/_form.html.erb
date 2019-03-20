@@ -1,5 +1,18 @@
 <%= form_with(model: player, local: true) do |form|%>
 
+   <%if player.errors.any?%>
+      <div id="error_explanation">
+         <h2>Kļūdas saglabājot:</h2>
+
+         <ul>
+         <% player.errors.full_messages.each do |message|%>
+         <li><%=message%></li>
+   <%end%>
+
+         </ul>
+         </div>
+         <%end%>
+
     <div>
        <%= form.label :name, "Vārds Uzvārds"%> 
        <%= form.text_field :name%> 

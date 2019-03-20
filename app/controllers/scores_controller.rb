@@ -1,7 +1,19 @@
 class ScoresController < ApplicationController
   
   def index
-    @scores = Score.all
+    @scores = Score.all.order(:created_at)
+
+   # respond_to do |format|
+     # format.html
+    #  format.json do
+   #     render(json: @scores.to_json(
+  #        only: [:home_goals, :guest_goals, :extra_time],
+ #         include: {team: {only: :title}}
+
+#          :home_team_id, :guest_team_id
+ #       ))
+  #    end
+   # end
   end
 
   def show

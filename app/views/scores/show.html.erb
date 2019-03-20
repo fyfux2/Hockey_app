@@ -1,27 +1,32 @@
 <p id="notice"><%= notice %></p>
-<h1><%= @player.name%></h1>
+<h1><%= @score.home_team.title %> vs. <%= @score.home_team.title %> </h1>
 
 <p>
-  <strong>Vārds:</strong>
-  <%= @player.name %>
+  <strong>Mājas komanda:</strong>
+  <%= @score.home_team.title %>
 </p>
 
 <p>
-  <strong>Numurs:</strong>
-  <%= @player.number %>
+  <strong>Viesu komanda:</strong>
+  <%= @score.home_team.title %>
 </p>
 <p>
-  <strong>Pozīcija:</strong>
-  <%= @player.position %>
+  <strong>Mājas komandas rezultāts:</strong>
+  <%= @score.home_goals %>
 </p>
 <p>
-  <strong>Klubs:</strong>
-  <%= @player.club %>
-</p>
-<p>
-  <strong>Valsts:</strong>
-  <%= @player.country_id %>
+  <strong>KViesu komandas rezultāts:</strong>
+  <%= @score.guest_goals %>
 </p>
 
-<%= link_to 'Labot', edit_player_path(@player) %> |
-<%= link_to 'Atpakaļ', player_path %>
+<% def human_boolean(boolean)
+            boolean ? 'Jā' : 'Nē'
+        end%>
+
+<p>
+  <strong>Papildlaiks?</strong>
+  <%= human_boolean(@score.extra_time) %>
+</p>
+
+<%= link_to 'Labot', edit_score_path(@score) %> |
+<%= link_to 'Atpakaļ', score_path %>
